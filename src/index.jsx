@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import createBrowserHistory from 'history/createBrowserHistory';
 
 import store from './store';
 
+import App from './App';
+import Home from './views/Home';
+
 import RouteMap from './RoutesMap';
+import "./style/index.less";
+
 const routes = RouteMap.routes;
-const links = RouteMap.links;
 
 const customHistory = createBrowserHistory();
 
@@ -17,20 +21,10 @@ export default class Index extends Component {
             <Provider store={store}>
                 <Router history={customHistory}>
                     <div>
-                        <div>
-                        {
-                            links.map(link => {
-                                return (
-                                    <div key={link.name} className="nav-link">
-                                        <Link {...link}>{link.name}</Link>
-                                    </div>
-                                )
-                            })
-                        }
-                        </div>
-                        <div>
-                            {routes.map(route => <Route key={route.path} {...route} />)}
-                        </div>
+                        <App>
+                            <Route exact key="/" path="/" component={Home} />
+                            {routes.map(route => <Route exact key={route.path} {...route} />)}
+                        </App>
                     </div>
                 </Router>
             </Provider>

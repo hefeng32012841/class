@@ -1,19 +1,27 @@
-import App from './App';
 import Test from './views/test';
+import SortClass from './views/sortClass';
 
 const links = [
     {
-        name: 'xx',
-        to: '/xx'
+        name: 'test',
+        to: '/test'
+    },
+    {
+        name: 'sortClass',
+        to: '/sortClass'
     }
 ];
 
 const routes = [
     {
-        path: '/xx',
-        component: App
+        path: '/test',
+        component: Test
+    },
+    {
+        path: '/sortClass',
+        component: SortClass
     }
-]
+];
 
 export default {
     links,

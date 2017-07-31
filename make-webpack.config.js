@@ -3,7 +3,7 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var path = require('path');
 
 module.exports = function (options) {
-    var vendor = ['react', 'react-dom', 'react-router', 'redux', 'react-redux', 'redux-thunk', 'antd', 'jquery'];
+    var vendor = ['react', 'react-dom', 'react-router', 'redux', 'react-redux', 'redux-thunk'];
     var ROOT_PATH = process.cwd();
 
     var babelOpions = {
@@ -15,7 +15,7 @@ module.exports = function (options) {
         plugins: [
             'transform-runtime',
             'transform-decorators-legacy',
-            ["import", { libraryName: "antd", style: "css" }]
+            ["import", { libraryName: "antd", style: true }]
         ]
     };
 
